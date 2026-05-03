@@ -140,3 +140,127 @@ Nesse momento:
 * Uma nova alternativa é testada
 
 ---
+
+## Estruturas de Dados Utilizadas
+
+### Matriz do labirinto
+
+```java
+int[][] labirinto;
+```
+
+Representa o mapa do jogo.
+
+* `0` : caminho livre
+* `1` : parede
+
+O labirinto é naturalmente uma grade (linhas e colunas), e a matriz permite acesso direto a qualquer posição. Ela define onde o algoritmo pode ou não se mover.
+
+---
+
+### Matriz de visitados
+
+```java
+boolean[][] visitado;
+```
+
+Controla quais posições já foram exploradas, evita que o algoritmo entre em loops infinitos e impede revisitar posições já testadas durante o backtracking.
+
+---
+
+### Matriz de caminho marcado
+
+```java
+int[][] caminhoMarcado;
+```
+
+Armazena o caminho atual sendo testado.
+
+* `1` : faz parte do caminho
+* `0` : não faz
+
+Permite visualizar o caminho encontrado e também desfazer passos facilmente pois mostra visualmente a solução encontrada no labirinto.
+
+---
+
+### Lista de posições (caminho final)
+
+```java
+List<Posicao> caminhoFinal;
+```
+
+Guarda a sequência de posições percorridas.
+
+Uma lista mantém a ordem dos passos, que é essencial para reconstruir o caminho, e armazena o caminho completo da entrada até a saída.
+
+---
+
+### Record `Posicao`
+
+```java
+record Posicao(int linha, int coluna) {}
+```
+
+Representa uma coordenada no labirinto.
+
+É uma estrutura simples e imutável, boa para representar pontos. Facilita o armazenamento e comparação de posições.
+
+---
+
+## Exemplo de Entrada e Saída
+
+### Entrada (labirinto)
+
+```text
+E . # .
+# . # .
+. . . #
+# # . X
+```
+
+Legenda:
+
+* `E`: entrada (0,0)
+* `X`: saída
+* `.`: caminho livre
+* `#`: parede
+
+---
+
+### Execução do algoritmo
+
+O algoritmo começa em `(0,0)` e tenta explorar os caminhos:
+
+1. Tenta descer, está bloqueado
+2. Tenta direita, caminho livre
+3. Continua explorando até encontrar a saída
+4. Quando encontra um beco sem saída, volta (backtracking)
+5. Testa outra direção
+
+---
+
+### Saída (caminho encontrado)
+
+```text
+E * # .
+# * # .
+. * * #
+# # * X
+```
+
+* `*` representa o caminho encontrado pelo algoritmo
+
+---
+
+### Explicação do comportamento
+
+O algoritmo percorre o labirinto em profundidade (**DFS**):
+
+* Vai avançando enquanto encontra caminhos válidos
+* Marca o caminho atual
+* Ao encontrar um bloqueio, desfaz o último passo
+* Continua tentando até encontrar a saída
+
+Ele **não procura o caminho mais curto**, mas sim **o primeiro caminho válido encontrado**.
+
+---
