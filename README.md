@@ -4,7 +4,7 @@
 
 Ativdade da disciplina de Inteligência Artificial.
 
-O algoritmo de **backtracking** é uma técnica clássica de resolução de problemas baseada em tentativa e erro (força bruta). Ele explora possíveis soluções construindo caminhos passo a passo e, quando identifica que uma escolha que não leva ao objetivo, retorna (faz o *backtrack*) para tentar outras alternativas.
+O algoritmo de **backtracking** é uma técnica clássica de resolução de problemas baseada em tentativa e erro (força bruta). Ele explora possíveis soluções construindo caminhos passo a passo e, quando identifica que uma escolha que não leva ao objetivo, retorna (faz o backtrack) para tentar outras alternativas.
 
 Neste trabalho, o backtracking foi utilizado para resolver automaticamente um labirinto, encontrando um caminho válido entre a entrada e a saída.
 
@@ -124,3 +124,9 @@ O sistema permite analisar:
 ## Conclusão
 
 O backtracking é uma abordagem poderosa para problemas de busca em espaços desconhecidos, como labirintos. Apesar de seu custo computacional elevado em casos extremos, ele garante encontrar uma solução se ela existir.
+
+## Referências
+
+- GeeksforGeeks. Rat in a Maze Backtracking.
+- LeetCode. Backtracking Cheat Sheet in Java (From Basics to Advanced)
+- StackOverflow. Recursive Backtracking Algorithm in C to solve a Sudoku.
